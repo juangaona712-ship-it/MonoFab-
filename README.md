@@ -75,10 +75,9 @@ Proyecto desarrollado para la **Universidad Iberoamericana (IBERO) Puebla**.
 
 | Integrante | Área de Especialidad |
 | :--- | :--- |
-| **Carlos Alberto Vázquez Peraza** | 📐 Ingeniería de Diseño |
-| **Luis Ernesto Tamez Velásquez** | 💻 Desarrollo y Documentación |
-| **Juan Manuel Gaona Serrano** | ⚙️ Integración y Pruebas |
-| **Brandon Saúl Ruvalcaba Pérez** | 🔎 Control de Calidad |
+
+| **Juan Manuel Gaona Serrano** | ⚙️ Ingeniería de Diseño |
+| **Brandon Saúl Ruvalcaba Pérez** | 🔎 Desarrollo y Documentación |
 
 <div align="center">
   <br>
