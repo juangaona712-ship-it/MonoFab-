@@ -92,12 +92,12 @@ Si apenas estás comenzando, te recomendamos ver el primer episodio del curso **
   
   <!-- Carlos -->
   <div style="width: 300px; margin-bottom: 20px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px;">
-    <img src="img/carlos.jpg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid #e53935; box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4); margin: 0 auto;">
-    <h3 style="margin-bottom: 5px; margin-top: 15px; font-size: 1.2em;">Carlos Alberto Vázquez Peraza</h3>
+    <img src="img/juan.jpg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid #e53935; box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4); margin: 0 auto;">
+    <h3 style="margin-bottom: 5px; margin-top: 15px; font-size: 1.2em;">Juan Manuel Gaona Serrano</h3>
     <p style="color: #e53935; font-weight: bold; margin: 0; font-size: 0.95em;">Ingeniero Mecatrónico</p>
-    <p style="color: #888; font-size: 0.85em; margin-top: 2px; margin-bottom: 15px;">18 años | Xalapa, Veracruz</p>
+    <p style="color: #888; font-size: 0.85em; margin-top: 2px; margin-bottom: 15px;">19 años | Puebla, Puebla</p>
     <blockquote style="font-size: 0.9em; color: #bbb; border-left: 3px solid #e53935; text-align: left; padding-left: 15px; margin: 0; font-style: italic;">
-      "Me metí a ingeniería mecatrónica porque siempre me ha gustado todo lo relacionado con la electrónica."
+      "La carrera es una de mis mayores formas de sentirme bien conmigo mismo y de lograr ser alguien en la vida."
     </blockquote>
   </div>
 
