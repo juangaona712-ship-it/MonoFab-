@@ -2,8 +2,8 @@ site_name: Diseño de PCB - Proyecto KiCad
 site_description: Documentación técnica del diseño y ruteo de circuito impreso.
 site_author: Juan Manuel Gaona Serrano
 
-repo_url: https://github.com/Mrlogros/Produccionb-Electronica
-repo_name: Mrlogros/Produccionb-Electronica
+repo_url: https://github.com/juangaona712-ship-it/MonoFab-.git
+repo_name: juangaona712-ship-it/MonoFab
 
 # Menú agrupado para forzar las pestañas superiores modernas
 nav:
