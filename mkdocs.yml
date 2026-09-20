@@ -1,0 +1,68 @@
+site_name: Diseño de PCB - Proyecto KiCad
+site_description: Documentación técnica del diseño y ruteo de circuito impreso.
+site_author: Tu Nombre
+
+repo_url: https://github.com/Mrlogros/Produccionb-Electronica
+repo_name: Mrlogros/Produccionb-Electronica
+
+# Menú agrupado para forzar las pestañas superiores modernas
+nav:
+  - Inicio: index.md
+  - Desarrollo de PCB:
+    - 1. Diseño del Esquemático: esquematico.md
+    - 2. Editor de Placas (Layout): editor-placas.md
+    - 3. Mods CE y Ajustes: mods-ce.md
+  - Referencias: recursos.md
+
+
+theme:
+  name: material
+  logo: material/memory  # <-- Reemplaza lo que tengas aquí por esto
+  favicon: material/developer-board
+  icon:
+    repo: fontawesome/brands/github
+  # 1. Nueva tipografía súper moderna y limpia
+  font:
+    text: Montserrat
+    code: Fira Code
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs 
+    - navigation.tabs.sticky
+    - navigation.top
+    - toc.integrate
+    - content.code.copy
+  # 2. Paleta de colores con alto contraste
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo # Azul tecnológico para la barra
+      accent: amber # Naranja/Amarillo vibrante para detalles
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - admonition
+  - attr_list
+  - md_in_html
+
+# Aquí llamamos a nuestro archivo de estilos personalizados
+extra_css:
+  - stylesheets/custom.css
