@@ -8,10 +8,11 @@ repo_name: juangaona712-ship-it/MonoFab
 # Menú agrupado para forzar las pestañas superiores modernas
 nav:
   - Inicio: index.md
-  - Desarrollo de PCB:
+  - Kicad:
     - 1. Diseño del Esquemático: esquematico.md
     - 2. Editor de Placas (Layout): editor-placas.md
-    - 3. Mods CE y Ajustes: mods-ce.md
+  - Mods: 
+    - 1. Mods CE y Ajustes: mods-ce.md
   - Referencias: recursos.md
 
 
