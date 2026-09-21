@@ -48,7 +48,7 @@ Si apenas estás comenzando, te recomendamos ver el primer episodio del curso **
 
 <div class="grid cards" markdown>
 
--   <img src="img/icono-esquematico.jpg" width="35" align="left" style="margin-right: 12px; border-radius: 6px;"> **[1. Esquemático](esquematico.md)**
+-   <img src="img/icono-esquematico.jpg" width="35" align="left" style="margin-right: 12px; border-radius: 6px;"> **[1. Kicad](esquematico.md)**
     
     ---
     
@@ -56,15 +56,7 @@ Si apenas estás comenzando, te recomendamos ver el primer episodio del curso **
     
     [Ver documentación ➔](esquematico.md)
 
--   <img src="img/icono-placa.png" width="35" align="left" style="margin-right: 12px; border-radius: 6px;"> **[2. Editor de Placas (Layout)](editor-placas.md)**
-    
-    ---
-    
-    Proceso de ruteo, distribución de huellas y diseño físico de la PCB.
-    
-    [Ver documentación ➔](editor-placas.md)
-
--   ⚙️ **[3. Mods CE](mods-ce.md)**
+-   ⚙️ **[2. Mods CE](mods-ce.md)**
     
     ---
     
@@ -72,7 +64,7 @@ Si apenas estás comenzando, te recomendamos ver el primer episodio del curso **
     
     [Ver documentación ➔](mods-ce.md)
 
--   📚 **[4. Recursos](recursos.md)**
+-   📚 **[3. Recursos](recursos.md)**
     
     ---
     
