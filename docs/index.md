@@ -48,7 +48,7 @@ Si apenas estás comenzando, te recomendamos ver el primer episodio del curso **
 
 <div class="grid cards" markdown>
 
--   <img src="img/icono-esquematico.jpg" width="35" align="left" style="margin-right: 12px; border-radius: 6px;"> **[1. Kicad](esquematico.md)**
+-   <img src="img/icono-esquematico.jpg" width="35" align="left" style="margin-right: 12px; border-radius: 6px;"> **[ 1. Kicad](esquematico.md)**
     
     ---
     
