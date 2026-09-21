@@ -103,12 +103,12 @@ Si apenas estás comenzando, te recomendamos ver el primer episodio del curso **
 
   <!-- Luis -->
   <div style="width: 300px; margin-bottom: 20px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px;">
-    <img src="img/luis.jpg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid #e53935; box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4); margin: 0 auto;">
-    <h3 style="margin-bottom: 5px; margin-top: 15px; font-size: 1.2em;">Luis Ernesto Tamez Velásquez</h3>
+    <img src="img/brandon.jpg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid #e53935; box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4); margin: 0 auto;">
+    <h3 style="margin-bottom: 5px; margin-top: 15px; font-size: 1.2em;">Brandon Saul Ruvalcaba Perez Oliva</h3>
     <p style="color: #e53935; font-weight: bold; margin: 0; font-size: 0.95em;">Ingeniero Mecatrónico</p>
-    <p style="color: #888; font-size: 0.85em; margin-top: 2px; margin-bottom: 15px;">19 años | Tampico, Tamaulipas</p>
+    <p style="color: #888; font-size: 0.85em; margin-top: 2px; margin-bottom: 15px;">19 años | Tamaulipas, Tabasco</p>
     <blockquote style="font-size: 0.9em; color: #bbb; border-left: 3px solid #e53935; text-align: left; padding-left: 15px; margin: 0; font-style: italic;">
-      "Vine a esta carrera por una razón muy clara: seré el próximo Tony Stark."
+      "Me gustan crear y aprender cosas nuevas."
     </blockquote>
   </div>
 
