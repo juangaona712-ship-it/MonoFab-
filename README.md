@@ -12,7 +12,7 @@
 </pre>
 
   <!-- Muestra el logo de tu equipo -->
-  <img src="docs/img/logo.png" alt="Logo KiCad Squad" width="120"/>
+  <img src="docs/img/logo.jpg" alt="Logo KiCad Squad" width="120"/>
   
   <h1>⚡ Documentación de Diseño de PCB</h1>
   
@@ -40,7 +40,7 @@ Este repositorio contiene el código fuente, la configuración y el desarrollo p
 
 Toda la documentación detallada, capturas de pantalla, listas de materiales (BOM) y justificaciones de diseño están alojadas en nuestro sitio web oficial generado de forma automática:
 
-👉 **[ACCEDER AL PANEL DE DOCUMENTACIÓN AQUÍ](https://mrlogros.github.io/Produccionb-Electronica/)**
+👉 **[ACCEDER AL PANEL DE DOCUMENTACIÓN AQUÍ](https://juangaona712-ship-it.github.io/MonoFab-/)**
 
 ---
 
@@ -77,6 +77,7 @@ Proyecto desarrollado para la **Universidad Iberoamericana (IBERO) Puebla**.
 | :--- | :--- |
 
 | **Juan Manuel Gaona Serrano** | ⚙️ Ingeniería de Diseño |
+
 | **Brandon Saúl Ruvalcaba Pérez** | 🔎 Desarrollo y Documentación |
 
 <div align="center">
