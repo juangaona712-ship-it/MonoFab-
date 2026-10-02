@@ -84,8 +84,11 @@ Para comenzar a fabricar el diseño, vas a requerir 5 elementos físicos princip
 3.  **Fresa de 2 mm:** Para cortar y separar el contorno completo de la placa[cite: 1].
 4.  **Broca de 0.8 mm:** Para realizar todas las perforaciones pasantes[cite: 1].
 5.  **Fresa plana de 0.4 mm:** Para el ruteo, aislamiento y trazado fino de las pistas[cite: 1].
-
-[Descargar Sacrificio SS.dxf](recursos/archivos/Sacrificio%20SS.dxf){ .md-button .md-button--primary }
+<div align="center" style="margin-top: 20px; margin-bottom: 40px;">
+  <a href="recursos/archivos/Sacrificio%20SS.dxf" download class="btn-descarga">
+    📥 Descarga la cama de sacrificio aqui
+  </a>
+</div>
 
 ![Materiales de trabajo](img/Imagen98.png)
 *Figura 4.8: Placa virgen y fresas de diferentes medidas.*
