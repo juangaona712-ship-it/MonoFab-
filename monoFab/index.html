@@ -1,0 +1,1054 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación técnica del diseño y ruteo de circuito impreso.">
+      
+      
+        <meta name="author" content="Juan Manuel Gaona Serrano">
+      
+      
+      
+        <link rel="prev" href="../mods-ce/">
+      
+      
+        <link rel="next" href="../recursos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../material/developer-board">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1. MonoFab - Diseño de PCB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Montserrat";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-operacion-de-la-fresadora-roland-monofab-srm-20" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Diseño de PCB" class="md-header__button md-logo" aria-label="Diseño de PCB" data-md-component="logo">
+      
+  <img src="../material/memory" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Diseño de PCB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. MonoFab
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/juangaona712-ship-it/MonoFab-.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    juangaona712-ship-it/MonoFab
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../esquematico/" class="md-tabs__link">
+          
+  
+  
+  Kicad
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../mods-ce/" class="md-tabs__link">
+          
+  
+  
+  Mods
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  MonoFab
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../recursos/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Referencias
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Diseño de PCB" class="md-nav__button md-logo" aria-label="Diseño de PCB" data-md-component="logo">
+      
+  <img src="../material/memory" alt="logo">
+
+    </a>
+    Diseño de PCB
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/juangaona712-ship-it/MonoFab-.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    juangaona712-ship-it/MonoFab
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kicad
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kicad
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../esquematico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Diseño del Esquemático
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../editor-placas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Editor de Placas (Layout)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mods
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mods
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mods-ce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Mods CE y Ajustes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MonoFab
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MonoFab
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. MonoFab
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. MonoFab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-instalacion-de-controladores-drivers-de-la-srm-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Instalación de Controladores (Drivers) de la SRM-20
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-descarga-e-instalacion-de-vpanel-for-srm-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Descarga e Instalación de VPanel for SRM-20
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-interfaz-de-usuario-y-controles-de-vpanel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Interfaz de Usuario y Controles de VPanel
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-preparacion-del-material-y-cama-de-sacrificio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Preparación del Material y Cama de Sacrificio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-calibracion-de-coordenadas-de-origen-zero-x-y-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Calibración de Coordenadas de Origen (Zero X, Y, Z)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-proceso-de-mecanizado-corte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Proceso de Mecanizado (Corte)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="4-operacion-de-la-fresadora-roland-monofab-srm-20">4. Operación de la Fresadora Roland MonoFab SRM-20</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Objetivo de esta fase</p>
+<p>Una vez generados los archivos de trayectorias (<code>.rml</code>) en Mods CE, es el momento de pasar al entorno físico. Esta sección detalla la preparación, calibración y operación de la fresadora <strong>Roland MonoFab SRM-20</strong> utilizando su software de control nativo, VPanel, para materializar nuestra placa de circuito impreso (PCB).</p>
+</div>
+<hr />
+<h2 id="41-instalacion-de-controladores-drivers-de-la-srm-20">4.1 Instalación de Controladores (Drivers) de la SRM-20</h2>
+<p>Antes de instalar el software de control VPanel, es un requisito indispensable que la computadora cuente con los controladores para poder comunicarse y reconocer la fresadora[cite: 1].</p>
+<ol>
+<li>Dirígete al centro de descargas oficial de Roland DG ingresando al enlace: <a href="https://downloadcenter.rolanddg.com/SRM-20">downloadcenter.rolanddg.com/SRM-20</a>[cite: 1].</li>
+</ol>
+<p><img alt="Centro de descargas Roland" src="../img/Imagen86.png" />
+<em>Figura 4.1: Portal oficial de descargas DGSHAPE.</em></p>
+<ol>
+<li>Navega hasta la pestaña <strong>Driver</strong>[cite: 1]. En esta sección, descarga e instala el controlador que corresponda a la arquitectura de tu versión de Windows, tomando en cuenta que el sistema es compatible con Windows 10 y Windows 11[cite: 1].</li>
+</ol>
+<p><img alt="Descarga del controlador" src="../img/Imagen87.png" />
+<em>Figura 4.2: Selección del driver compatible con el sistema operativo.</em></p>
+<ol>
+<li>Una vez finalizada la instalación del controlador, conecta la fresadora SRM-20 a la computadora utilizando el cable USB y enciende la máquina para asegurar que el sistema operativo reconozca el dispositivo correctamente[cite: 1].</li>
+</ol>
+<hr />
+<h2 id="42-descarga-e-instalacion-de-vpanel-for-srm-20">4.2 Descarga e Instalación de VPanel for SRM-20</h2>
+<p>El siguiente paso es obtener la interfaz gráfica de usuario que nos permitirá enviar los archivos y controlar los movimientos de la fresadora.</p>
+<ol>
+<li>Dentro de la misma página del centro de descargas, cambia a la pestaña de <strong>Software</strong>[cite: 1].</li>
+<li>Desplázate por la lista hasta encontrar la aplicación <strong>VPanel for SRM-20</strong> y haz clic en el botón de descarga[cite: 1].</li>
+</ol>
+<p><img alt="Descarga de VPanel" src="../img/Imagen88.png" />
+<em>Figura 4.3: Localización del software de control VPanel.</em></p>
+<ol>
+<li>Localiza el archivo instalador (<code>.exe</code> o carpeta comprimida) que se descargó[cite: 1]. Haz clic derecho sobre el ejecutable y selecciona <strong>"Ejecutar como administrador"</strong> para otorgarle los permisos necesarios al sistema[cite: 1].</li>
+</ol>
+<p><img alt="Archivo instalador descargado" src="../img/Imagen89.png" />
+<em>Figura 4.4: Ejecutable del instalador VPanel.</em></p>
+<ol>
+<li>Sigue todas las instrucciones y ventanas de diálogo del asistente de instalación (<code>setup</code>) hasta que el proceso haya concluido[cite: 1].</li>
+</ol>
+<p><img alt="Asistente de instalación" src="../img/Imagen90.png" />
+<em>Figura 4.5: Aplicación Setup del software.</em></p>
+<hr />
+<h2 id="43-interfaz-de-usuario-y-controles-de-vpanel">4.3 Interfaz de Usuario y Controles de VPanel</h2>
+<p>Una vez completada la instalación, localiza el acceso directo en tu escritorio o en el menú de inicio y abre la aplicación <strong>VPanel for SRM-20</strong>[cite: 1]. </p>
+<p><img alt="Acceso directo a VPanel" src="../img/Imagen91.png" />
+<em>Figura 4.6: Icono de escritorio de VPanel.</em></p>
+<p>Si la máquina está encendida y conectada correctamente, el programa detectará automáticamente el estado del equipo y habilitará la interfaz[cite: 1].</p>
+<p><img alt="Interfaz principal de VPanel" src="../img/Imagen92.png" />
+<em>Figura 4.7: Interfaz gráfica principal.</em></p>
+<p>Para operar la máquina con seguridad, es fundamental comprender las funciones de los paneles de control:</p>
+<ul>
+<li>
+<p><strong>Controles de Ejes (X, Y, Z):</strong> Las flechas direccionales te permitirán mover la herramienta en el espacio físico[cite: 1]. Los botones agrupados en el recuadro amarillo desplazan el <strong>Eje X</strong> y muestran sus coordenadas[cite: 1]. Los botones delimitados en rojo controlan el <strong>Eje Y</strong>[cite: 1]. Finalmente, los botones verticales marcados en azul controlan la altura o el <strong>Eje Z</strong>[cite: 1].
+    <img alt="Control de ejes X Y Z" src="../img/Imagen93.png" /></p>
+</li>
+<li>
+<p><strong>Paso del Cursor (Cursor Step):</strong> Este apartado, en el recuadro naranja, regula la magnitud o distancia que se moverá la máquina con cada clic[cite: 1]. La opción <strong>"Continue"</strong> genera movimientos prolongados y rápidos[cite: 1]. Las demás opciones (x100, x10, x1) limitan el desplazamiento para lograr aproximaciones milimétricas y seguras[cite: 1].
+    <img alt="Ajuste de Cursor Step" src="../img/Imagen94.png" /></p>
+</li>
+<li>
+<p><strong>Mover al Origen (Move To Origin):</strong> Situados en la parte inferior, el botón del recuadro rojo envía automáticamente la máquina a sus coordenadas (0,0) guardadas para los ejes X y Y[cite: 1]. El botón del recuadro azul retorna el husillo a la coordenada de origen 0 del eje Z[cite: 1].
+    <img alt="Botones de retorno a origen" src="../img/Imagen95.png" /></p>
+</li>
+<li>
+<p><strong>Control del Husillo (Spindle):</strong> Ubicado en la esquina inferior izquierda, los botones <strong>ON</strong> y <strong>OFF</strong> sirven para encender o apagar la rotación mecánica del motor, haciendo que la fresa comience a girar para desgastar el material[cite: 1].
+    <img alt="Control de encendido de herramienta" src="../img/Imagen96.png" /></p>
+</li>
+<li>
+<p><strong>Establecer Origen (Set Origin Point):</strong> En la esquina superior derecha, los botones <strong>X/Y</strong> y <strong>Z</strong> sirven para guardar la posición actual de la máquina y declararla permanentemente como el nuevo punto de inicio (0,0,0) del trabajo[cite: 1].
+    <img alt="Fijación de punto de origen" src="../img/Imagen97.png" /></p>
+</li>
+</ul>
+<hr />
+<h2 id="44-preparacion-del-material-y-cama-de-sacrificio">4.4 Preparación del Material y Cama de Sacrificio</h2>
+<p>Para comenzar a fabricar el diseño, vas a requerir 5 elementos físicos principales[cite: 1]:
+1.  <strong>Placa fenólica (cobre y fibra de vidrio):</strong> El material base de tu circuito[cite: 1].
+2.  <strong>Cama de sacrificio de MDF:</strong> Una base de madera para proteger la plataforma de aluminio de la máquina[cite: 1].
+3.  <strong>Fresa de 2 mm:</strong> Para cortar y separar el contorno completo de la placa[cite: 1].
+4.  <strong>Broca de 0.8 mm:</strong> Para realizar todas las perforaciones pasantes[cite: 1].
+5.  <strong>Fresa plana de 0.4 mm:</strong> Para el ruteo, aislamiento y trazado fino de las pistas[cite: 1].</p>
+<div align="center" style="margin-top: 20px; margin-bottom: 40px;">
+  <a href="recursos/archivos/Sacrificio%20SS.dxf" download class="btn-descarga">
+    📥 Descarga la cama de sacrificio aqui
+  </a>
+</div>
+
+<p><img alt="Materiales de trabajo" src="../img/Imagen98.png" />
+<em>Figura 4.8: Placa virgen y fresas de diferentes medidas.</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Fijación de la placa</p>
+<p>Con la ayuda de cinta adhesiva de doble cara, pega la placa de cobre directamente sobre la tabla de sacrificio de MDF[cite: 1]. Es muy importante presionar bien y garantizar que quede <strong>completamente derecha y plana</strong> para que no se mueva por la vibración y para evitar desniveles que impidan un desgaste de cobre uniforme a la hora de cortar[cite: 1].</p>
+</div>
+<p><img alt="Fijación de placa con cinta" src="../img/Imagen99.png" />
+<em>Figura 4.9: PCB adherida a la cama de sacrificio.</em></p>
+<p>Una vez lista, introduce la placa de sacrificio en la máquina y fíjala correctamente alineando y apretando los tornillos de fijación en los agujeros roscados de la plataforma de la fresadora[cite: 1].</p>
+<p><img alt="Atornillando cama a la máquina" src="../img/Imagen100.png" />
+<em>Figura 4.10: Sujeción de la cama de MDF en la SRM-20.</em></p>
+<p>Con la ayuda de la <strong>llave Allen</strong> incluida con el equipo, afloja el tornillo prisionero del cabezal para insertar la herramienta[cite: 1]. Es similar a la mecánica de un mandril de taladro[cite: 1]. El orden técnico de fresado indica que siempre <strong>se empieza por las perforaciones</strong>, por lo tanto, inserta primero la broca de 0.8 mm y apriétala firmemente[cite: 1].</p>
+<p><img alt="Llave Allen de instalación" src="../img/Imagen101.png" />
+<em>Figura 4.11: Llave Allen para ajuste de fresas.</em></p>
+<hr />
+<h2 id="45-calibracion-de-coordenadas-de-origen-zero-x-y-z">4.5 Calibración de Coordenadas de Origen (Zero X, Y, Z)</h2>
+<p>Con la placa atornillada y la broca colocada, procede a establecer el punto de partida (Origen). </p>
+<ol>
+<li><strong>Calibración X / Y:</strong> Emplea las flechas de la interfaz (Ejes X y Y) para desplazar el cabezal de la herramienta hasta ubicarlo con precisión sobre la esquina inferior izquierda de tu placa de cobre[cite: 1]. </li>
+</ol>
+<p><img alt="Desplazamiento hacia la esquina inferior izquierda" src="../img/Imagen102.png" />
+<em>Figura 4.12: Posicionamiento en el plano horizontal X-Y.</em></p>
+<ol>
+<li>Cuando la punta se encuentre perfectamente posicionada en dicha esquina inferior izquierda, presiona el botón <strong>X/Y</strong> ubicado bajo el apartado <em>Set Origin Point</em> (recuadro rojo) para guardar esas coordenadas como el inicio del diseño[cite: 1].</li>
+</ol>
+<p><img alt="Fijando origen XY" src="../img/Imagen103.png" />
+<em>Figura 4.13: Declaración del cero en los ejes X y Y.</em></p>
+<ol>
+<li><strong>Calibración Z:</strong> Ahora debemos ajustar la altura[cite: 1]. Utiliza las flechas verticales de la interfaz para comenzar a descender la herramienta poco a poco hacia la superficie del cobre[cite: 1].</li>
+</ol>
+<p><img alt="Descenso de la herramienta en Z" src="../img/Imagen104.png" />
+<em>Figura 4.14: Aproximación de la fresa a la placa.</em></p>
+<div class="admonition danger">
+<p class="admonition-title">Precaución: Calibración final del eje Z</p>
+<p>Cuando la herramienta esté muy cerca del material, enciende el husillo presionando el botón <strong>ON</strong> (<em>Spindle</em>)[cite: 1]. Con el motor girando, disminuye el <em>Cursor Step</em> a la mínima expresión (x1 o x10) y baja muy lentamente paso a paso[cite: 1]. <strong>Detente inmediatamente</strong> en cuanto escuches fricción y veas que sale un poco de polvo brillante de la placa[cite: 1]. Ese momento exacto es la superficie Z-0.
+Guarda la coordenada haciendo clic en el botón <strong>Z</strong> de <em>Set Origin Point</em> y recuerda siempre alzar o subir la punta unos milímetros en la interfaz antes de presionar el botón OFF para apagar la rotación[cite: 1].</p>
+</div>
+<p><img alt="Estableciendo origen Z" src="../img/Imagen105.png" />
+<em>Figura 4.15: Declaración del cero en el eje Z.</em></p>
+<hr />
+<h2 id="46-proceso-de-mecanizado-corte">4.6 Proceso de Mecanizado (Corte)</h2>
+<p>Con la máquina calibrada, presiona el botón central que indica <strong>"Cut"</strong>[cite: 1].</p>
+<p><img alt="Botón Cut en interfaz" src="../img/Imagen106.png" />
+<em>Figura 4.16: Preparación para envío de código G.</em></p>
+<p>En la ventana de procesamiento:
+1.  Haz clic en el botón <strong>"Add"</strong> (recuadro azul) y selecciona el archivo <code>.rml</code> que hayas generado en Mods CE correspondiente a la etapa a realizar[cite: 1].
+2.  Una vez que el archivo aparezca en la lista, presiona el botón <strong>"Output"</strong> (recuadro naranja) para iniciar el trabajo de fresado[cite: 1].</p>
+<p><img alt="Ventana Output de trabajo" src="../img/Imagen107.png" />
+<em>Figura 4.17: Carga del archivo RML y comando de Output.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Durante el corte</p>
+<p>Cuando la máquina comience a ejecutar sus trayectorias, es imperativo que la computadora no entre en suspensión y no se apague bajo ninguna circunstancia, ya que esto cortará la comunicación serial y arruinará el trabajo[cite: 1].</p>
+</div>
+<p><img alt="Máquina cortando material" src="../img/Imagen108.png" />
+<em>Figura 4.18: Fresadora operando sobre el panel.</em></p>
+<p>Recuerda siempre mantener la rigurosa secuencia de trabajo: primero las <strong>perforaciones (0.8 mm)</strong>, seguido del ruteo de <strong>pistas (0.4 mm)</strong> y, al final, el corte de <strong>contorno (2 mm)</strong>[cite: 1]. </p>
+<p>Al momento de realizar el cambio de punta para avanzar a la siguiente etapa, <strong>solo debes calibrar las nuevas coordenadas del eje Z</strong> repitiendo el proceso de aproximación[cite: 1]. Las coordenadas guardadas en los ejes X y Y seguirán siendo exactamente las mismas; no las alteres[cite: 1].</p>
+<p><img alt="Acercamiento a corte de pista" src="../img/Imagen109.png" />
+<em>Figura 4.19: Detalle del desbaste superficial.</em></p>
+<p>Cada vez que finalice el maquinado de un archivo, abre la cubierta acrílica de seguridad y utiliza una aspiradora para retirar rápidamente todo el polvo de cobre y fibra de vidrio suelto, garantizando una superficie limpia para la siguiente herramienta[cite: 1]. </p>
+<p>Al terminar completamente el contorno, desenrosca los tornillos de la plataforma y despega gentilmente la PCB completada de tu cama de sacrificio[cite: 1].</p>
+<p><img alt="Placa de cobre finalizada" src="../img/Imagen110.png" />
+<em>Figura 4.20: Placa de circuito impreso exitosamente fabricada.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
