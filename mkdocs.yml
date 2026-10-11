@@ -12,13 +12,12 @@ nav:
     - 1. Diseño del Esquemático: esquematico.md
     - 2. Editor de Placas (Layout): editor-placas.md
   - Mods: 
-    - 1. Mods CE y Ajustes: mods-ce.md
+    - 3. Mods CE y Ajustes: mods-ce.md
   - MonoFab:
-    - 1. MonoFab: monoFab.md
-  - Referencias: recursos.md
+    - 4. MonoFab: monoFab.md
   - Multisim:
-    - 1. Multisim: multisim.md
-
+    - 5. Multisim: multisim.md
+  - Referencias: recursos.md
 
 theme:
   name: material
