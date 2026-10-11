@@ -15,7 +15,7 @@ Desde la concepción lógica del diagrama eléctrico, pasando por la simulación
 
 <div class="grid cards" markdown>
 
--   📝 **[1. Diseño del Esquemático](esquematico.md)**
+-   📝 **[1. Diseño del Esquemático KiCad](esquematico.md)**
     
     ---
     
@@ -23,7 +23,7 @@ Desde la concepción lógica del diagrama eléctrico, pasando por la simulación
     
     [Ver documentación ➔](esquematico.md)
 
--   📐 **[2. Editor de Placas (Layout)](editor-placas.md)**
+-   📐 **[2. Editor de Placas KiCad(Layout)](editor-placas.md)**
     
     ---
     
