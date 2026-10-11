@@ -41,7 +41,7 @@ body {
     background-attachment: fixed !important;
 }
 /* =========================================
-   3. MARCA DE AGUA: CIRCUITO DESVANECIDO (Mitad Izquierda)
+   3. MARCA DE AGUA: CIRCUITO COMPLETO
    ========================================= */
 body::before {
     content: "";
@@ -52,17 +52,14 @@ body::before {
     height: 100%;
     /* Tu imagen de circuito */
     background-image: url('../img/circuito-fondo-4.jpg');
-    /* La anclamos a la izquierda y hacemos que cubra el alto */
-    background-position: left center;
+    /* Centramos la imagen para que abarque toda la pantalla */
+    background-position: center center;
     background-size: cover; 
     background-repeat: no-repeat;
-    /* Subimos un poco la opacidad porque se va a difuminar */
-    opacity: 0.15; 
+    /* Opacidad baja y uniforme para toda la pantalla */
+    opacity: 0.06; 
     z-index: -1;
     pointer-events: none;
-    /* MAGIA: Máscara que va de color sólido (izquierda) a transparente (hacia el centro) */
-    -webkit-mask-image: linear-gradient(to right, black 0%, black 20%, transparent 65%);
-    mask-image: linear-gradient(to right, black 0%, black 20%, transparent 65%);
 }
 /* =========================================
    4. EFECTOS GLASSMORPHISM Y RESPIRACIÓN (Sidebar)
