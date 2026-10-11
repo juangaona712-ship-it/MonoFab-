@@ -39,25 +39,23 @@ theme:
     # Nota: Se eliminó 'navigation.expand' para que los menús estén colapsados por defecto.
     # Nota: Se eliminó 'toc.integrate' para limpiar los subtítulos de la barra izquierda y pasarlos a la derecha.
     
-  # Paleta de colores: Tonos grises modernos y limpios
+ # 2. Paleta de colores con alto contraste (Modo oscuro por defecto)
   palette:
-    # Modo Claro (Gris azulado)
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
+    # 1. Modo Oscuro (slate) - Al estar primero, es el predeterminado para todos
+    - scheme: slate
+      primary: grey # Color de barra superior (gris moderno)
+      accent: amber # Color de detalles (ámbar/naranja)
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+        
+    # 2. Modo Claro (default) - Queda como opción secundaria si el usuario le pica al botón
+    - scheme: default
       primary: blue grey
       accent: blue
       toggle:
         icon: material/brightness-7
         name: Cambiar a modo oscuro
-    
-    # Modo Oscuro (Gris profundo moderno)
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: grey
-      accent: blue
-      toggle:
-        icon: material/brightness-4
-        name: Cambiar a modo claro
 
 markdown_extensions:
   - attr_list
