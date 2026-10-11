@@ -1,46 +1,13 @@
-<div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 30px;">
+<div style="display: flex; align-items: center; justify-content: center; margin-bottom: 30px;">
   <!-- Logo de tu equipo -->
-  <img src="img/logo.jpg" alt="Logo del Equipo" width="100">
-  
-  <!-- Logo de KiCad actualizado a tu archivo local -->
-  <img src="img/KiCad-Logo.svg.webp" alt="Logo KiCad" width="100">
+  <img src="img/logo.jpg" alt="Logo del Equipo" width="150" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
 </div>
 
-# Documentación de Diseño de PCB
+# Documentación de Producción Electrónica
 
-<!-- BARRA LATERAL FLOTANTE DE ICONOS -->
-<div class="sidebar-glass">
-  
-  <a href="https://discord.com/invite/FANuKv8sZn" target="_blank" title="Discord Oficial de KiCad">
-    <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" width="40" style="border-radius: 8px;">
-  </a>
-  
-  <a href="https://www.kicad.org/blog/" target="_blank" title="Blog de KiCad">
-    <img src="img/kicad-icon.png" width="40" style="border-radius: 8px; background: white; padding: 4px;">
-  </a>
-  
-  <a href="https://downloadcenter.rolanddg.com/SRM-20" target="_blank" title="Descargar VPanel SRM-20">
-    <img src="img/icono-monofab.jpg" width="40" style="border-radius: 8px;">
-  </a>
+Bienvenido a la bitácora de nuestro proyecto de Producción Electrónica. En este sitio web documentamos paso a paso todo el flujo de trabajo técnico necesario para el diseño, simulación y manufactura de placas de circuito impreso (PCBs). 
 
-</div>
-<!-- FIN BARRA LATERAL -->
-
-Bienvenido a la bitácora del proyecto de diseño de nuestra placa de circuito impreso (PCB). Este sitio documenta el flujo de trabajo realizado en **KiCad**.
-
-<div align="center" style="margin-top: 20px; margin-bottom: 40px;">
-  <a href="https://www.kicad.org/download/" target="_blank" class="btn-descarga">
-    📥 Descargar KiCad Oficial
-  </a>
-</div>
-
-## 🎬 Introducción al Entorno (Curso)
-
-Si apenas estás comenzando, te recomendamos ver el primer episodio del curso **KiCad desde Cero** (por *Easy Learning*). En esta vista previa podrás familiarizarte con el entorno de trabajo antes de replicar nuestra documentación:
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); margin-bottom: 40px; margin-top: 20px;">
-  <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/d3H3tfU4zBI" title="KiCad desde Cero - Entorno" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+Desde la concepción lógica del diagrama eléctrico, pasando por la simulación del comportamiento de los componentes, hasta llegar a la generación de trayectorias (CAM) y el fresado físico de la placa, aquí encontrarás guías detalladas y los resultados de nuestras prácticas de laboratorio.
 
 ---
 
@@ -48,27 +15,51 @@ Si apenas estás comenzando, te recomendamos ver el primer episodio del curso **
 
 <div class="grid cards" markdown>
 
--   <img src="img/icono-esquematico.jpg" width="35" align="left" style="margin-right: 12px; border-radius: 6px;"> **[ 1. Kicad](esquematico.md)**
+-   📝 **[1. Diseño del Esquemático](esquematico.md)**
     
     ---
     
-    Documentación del diagrama lógico, selección de componentes y cableado.
+    Creación del diagrama lógico, selección de componentes y cableado de redes eléctricas.
     
     [Ver documentación ➔](esquematico.md)
 
--   ⚙️ **[2. Mods CE](mods-ce.md)**
+-   📐 **[2. Editor de Placas (Layout)](editor-placas.md)**
     
     ---
     
-    Modificaciones aplicadas, correcciones y consideraciones técnicas.
+    Diseño físico de la PCB, enrutamiento de pistas, posicionamiento 3D y reglas de diseño.
+    
+    [Ver documentación ➔](editor-placas.md)
+
+-   💻 **[3. Mods CE (Manufactura CAM)](mods-ce.md)**
+    
+    ---
+    
+    Generación de trayectorias de fresado (archivos G-Code/RML) a partir de vectores para la máquina CNC.
     
     [Ver documentación ➔](mods-ce.md)
 
--   📚 **[3. Recursos](recursos.md)**
+-   ⚙️ **[4. Operación MonoFab](monoFab.md)**
     
     ---
     
-    Material de referencia, hojas de datos y guías para el manejo de KiCad.
+    Configuración, calibración de ejes (X, Y, Z) y uso de la fresadora Roland MonoFab SRM-20.
+    
+    [Ver documentación ➔](monoFab.md)
+
+-   🔬 **[5. Simulación Multisim](multisim.md)**
+    
+    ---
+    
+    Análisis de barrido en DC (DC Sweep), osciloscopios virtuales y validación de circuitos rectificadores.
+    
+    [Ver documentación ➔](multisim.md)
+
+-   📚 **[6. Referencias y Recursos](recursos.md)**
+    
+    ---
+    
+    Material de referencia complementario, hojas de datos (datasheets) y manuales de apoyo.
     
     [Ver documentación ➔](recursos.md)
 
@@ -76,7 +67,7 @@ Si apenas estás comenzando, te recomendamos ver el primer episodio del curso **
 
 ---
 
-## Nuestro Equipo: KiCad Squad
+## Nuestro Equipo de Trabajo
 <p style="text-align: center; color: #888; margin-top: -10px;">Proyecto de Electrónica - IBERO Puebla</p>
 
 <!-- Contenedor del equipo ajustado para 2 personas con descripciones -->
