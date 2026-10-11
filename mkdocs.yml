@@ -21,7 +21,7 @@ nav:
 
 theme:
   name: material
-  logo: material/memory  # <-- Reemplaza lo que tengas aquí por esto
+  logo: img/logo.jpg # <-- Reemplaza lo que tengas aquí por esto
   favicon: material/developer-board
   icon:
     repo: fontawesome/brands/github
