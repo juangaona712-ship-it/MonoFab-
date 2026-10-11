@@ -1,0 +1,1433 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación técnica del diseño y ruteo de circuito impreso.">
+      
+      
+        <meta name="author" content="Juan Manuel Gaona Serrano">
+      
+      
+      
+        <link rel="prev" href="../monoFab/">
+      
+      
+        <link rel="next" href="../recursos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../material/developer-board">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>5. Multisim - Diseño de PCB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Montserrat";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-simulacion-de-circuitos-en-multisim" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Diseño de PCB" class="md-header__button md-logo" aria-label="Diseño de PCB" data-md-component="logo">
+      
+  <img src="../img/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Diseño de PCB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. Multisim
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="amber"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/juangaona712-ship-it/MonoFab-.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    juangaona712-ship-it/MonoFab
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../esquematico/" class="md-tabs__link">
+          
+  
+  
+  Kicad
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../mods-ce/" class="md-tabs__link">
+          
+  
+  
+  Mods
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../monoFab/" class="md-tabs__link">
+          
+  
+  
+  MonoFab
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Multisim
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../recursos/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Referencias
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Diseño de PCB" class="md-nav__button md-logo" aria-label="Diseño de PCB" data-md-component="logo">
+      
+  <img src="../img/logo.jpg" alt="logo">
+
+    </a>
+    Diseño de PCB
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/juangaona712-ship-it/MonoFab-.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    juangaona712-ship-it/MonoFab
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kicad
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kicad
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../esquematico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Diseño del Esquemático
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../editor-placas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Editor de Placas (Layout)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mods
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mods
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mods-ce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Mods CE y Ajustes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MonoFab
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MonoFab
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monoFab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. MonoFab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multisim
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Multisim
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Multisim
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Multisim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-analisis-de-barrido-en-dc-dc-sweep-para-transistores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Análisis de Barrido en DC (DC Sweep) para Transistores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Análisis de Barrido en DC (DC Sweep) para Transistores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-configuracion-de-parametros-analysis-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Configuración de Parámetros (Analysis Parameters)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-seleccion-de-variables-de-salida-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2: Selección de Variables de Salida (Output)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-ejecutar-el-analisis-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3: Ejecutar el Análisis (Run)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-analizar-los-resultados-en-la-grafica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 4: Analizar los Resultados en la Gráfica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificacion-de-pasos-en-el-barrido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modificación de Pasos en el Barrido
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analisis-del-circuito-base-utilizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análisis del Circuito Base Utilizado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-simulacion-interactiva-circuito-rectificador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Simulación Interactiva: Circuito Rectificador
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Simulación Interactiva: Circuito Rectificador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-6-anadir-un-generador-de-funciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 6: Añadir un Generador de Funciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-7-buscar-y-seleccionar-componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 7: Buscar y Seleccionar Componentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-8-configurar-el-modo-de-simulacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 8: Configurar el Modo de Simulación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-9-anadir-el-osciloscopio-estandar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 9: Añadir el Osciloscopio Estándar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-10-configurar-el-generador-de-funciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 10: Configurar el Generador de Funciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-11-visualizar-y-comparar-senales-en-el-osciloscopio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 11: Visualizar y Comparar Señales en el Osciloscopio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternativa-uso-del-osciloscopio-tektronix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternativa: Uso del Osciloscopio Tektronix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-analisis-de-barrido-en-dc-dc-sweep-para-transistores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Análisis de Barrido en DC (DC Sweep) para Transistores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 Análisis de Barrido en DC (DC Sweep) para Transistores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-configuracion-de-parametros-analysis-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Configuración de Parámetros (Analysis Parameters)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-seleccion-de-variables-de-salida-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2: Selección de Variables de Salida (Output)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-ejecutar-el-analisis-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3: Ejecutar el Análisis (Run)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-analizar-los-resultados-en-la-grafica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 4: Analizar los Resultados en la Gráfica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificacion-de-pasos-en-el-barrido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modificación de Pasos en el Barrido
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analisis-del-circuito-base-utilizado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análisis del Circuito Base Utilizado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-simulacion-interactiva-circuito-rectificador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Simulación Interactiva: Circuito Rectificador
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 Simulación Interactiva: Circuito Rectificador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-6-anadir-un-generador-de-funciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 6: Añadir un Generador de Funciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-7-buscar-y-seleccionar-componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 7: Buscar y Seleccionar Componentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-8-configurar-el-modo-de-simulacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 8: Configurar el Modo de Simulación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-9-anadir-el-osciloscopio-estandar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 9: Añadir el Osciloscopio Estándar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-10-configurar-el-generador-de-funciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 10: Configurar el Generador de Funciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-11-visualizar-y-comparar-senales-en-el-osciloscopio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 11: Visualizar y Comparar Señales en el Osciloscopio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternativa-uso-del-osciloscopio-tektronix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternativa: Uso del Osciloscopio Tektronix
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="5-simulacion-de-circuitos-en-multisim">5. Simulación de Circuitos en Multisim</h1>
+<div class="admonition info">
+<p class="admonition-title">Nota importante</p>
+<p>Todo lo que se muestra a continuación es solo un ejemplo de todo lo que se puede hacer en la aplicación de Multisim. Existen muchas más herramientas y tipos de análisis disponibles.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Objetivo de esta fase</p>
+<p>Esta sección documenta el uso de la plataforma de simulación Multisim. Aprenderemos a configurar un análisis de barrido en corriente directa (DC Sweep) para caracterizar un transistor, y posteriormente utilizaremos la simulación interactiva con instrumentos virtuales (como generadores de funciones y osciloscopios) para analizar un circuito rectificador con diodo.</p>
+</div>
+<hr />
+<h2 id="51-analisis-de-barrido-en-dc-dc-sweep-para-transistores">5.1 Análisis de Barrido en DC (DC Sweep) para Transistores</h2>
+<h3 id="paso-1-configuracion-de-parametros-analysis-parameters">Paso 1: Configuración de Parámetros (Analysis Parameters)</h3>
+<p>En esta primera parte, dentro de la ventana de configuración del <em>DC Sweep</em>, nos ubicamos en la pestaña <strong>Analysis parameters</strong>. Lo que estás haciendo aquí es configurar tu análisis en DC para indicarle al simulador qué valores van a ir cambiando. </p>
+<p>Aquí vas a variar tanto tu fuente de voltaje como tu fuente de corriente. En la sección "Source 1" ajustas tu fuente de voltaje principal (VCE), definiendo en qué valor inicia, en dónde termina y de cuánto en cuánto va a ir incrementando. Luego, activas la casilla "Use source 2" para hacer exactamente lo mismo con tu fuente de corriente secundaria.</p>
+<p><img alt="Configuración de parámetros DC Sweep" src="../img/imagenes_multisim/Imagen1.png" />
+<em>Figura 5.1: Pestaña Analysis parameters configurando Source 1 y Source 2.</em></p>
+<h3 id="paso-2-seleccion-de-variables-de-salida-output">Paso 2: Selección de Variables de Salida (Output)</h3>
+<p>Ahora te pasas a la pestaña de <strong>Output</strong> (Salidas). En este apartado es donde le indicas al simulador qué es lo que quieres detectar o medir en tu circuito. </p>
+<p>En la columna de la izquierda ("Variables in circuit") vas a buscar las variables de tu componente; por ejemplo, si estás analizando un transistor (que en los simuladores normalmente se identifica con la letra Q, como Q1), buscas la corriente que te interesa analizar. Como explicaba el profesor, seleccionas la variable deseada en esta lista (como se observa en el recuadro naranja) y luego le das clic al botón <strong>Add</strong> (Añadir), el cual está resaltado en el recuadro rojo. Esto pasará tu variable a la columna de la derecha ("Selected variables for analysis"), indicando que está lista para ser monitoreada.</p>
+<p><img alt="Pestaña de Output en DC Sweep" src="../img/imagenes_multisim/Imagen2.png" />
+<em>Figura 5.2: Selección de la variable I(Q1[IC]) para el análisis.</em></p>
+<h3 id="paso-3-ejecutar-el-analisis-run">Paso 3: Ejecutar el Análisis (Run)</h3>
+<p>Una vez que ya configuraste los parámetros de tus fuentes y añadiste las variables que quieres medir en el paso anterior, estás listo para ejecutar el análisis. </p>
+<p>Te diriges a la parte inferior de la ventana, donde encontrarás varias opciones de guardado y cancelación. Aquí, simplemente le vas a dar clic al botón <strong>Run</strong> (Correr), el cual está resaltado con un recuadro verde y tiene el icono de un pequeño triángulo de reproducción (play). Como explicaba el profesor, al presionar este botón, el simulador tomará toda la configuración que acabas de hacer y comenzará a generar las gráficas con los resultados de las barridas.</p>
+<p><img alt="Botón Run de Multisim" src="../img/imagenes_multisim/Imagen3.png" />
+<em>Figura 5.3: Ejecución de la simulación de barrido.</em></p>
+<h3 id="paso-4-analizar-los-resultados-en-la-grafica">Paso 4: Analizar los Resultados en la Gráfica</h3>
+<p>Después de haberle dado al botón de correr, se abrirá automáticamente una nueva ventana llamada <strong>Grapher View</strong> (vista de graficador) donde por fin puedes visualizar los resultados obtenidos.</p>
+<p>Como mencionaba el profesor anteriormente, aquí se pueden ver las "3 barridas" que el simulador realizó basándose en los valores de inicio, fin e incremento que configuraste en el primer paso. Esta gráfica (llamada <em>"DC Transfer Characteristic"</em>) te muestra en el eje vertical (Y) la corriente que decidiste medir y en el eje horizontal (X) el voltaje que fuiste variando.</p>
+<p>Si te fijas en los trazos y las flechas de la imagen, te explican a qué corresponde cada línea de color:
+*   <strong>La flecha amarilla</strong> señala la línea roja que va por debajo, mostrando el resultado cuando la corriente de tu segunda fuente (IB) equivale a 0.
+*   <strong>La flecha naranja</strong> señala la línea verde de en medio, que es el comportamiento de tu circuito cuando la corriente IB incrementó a 0.0005.
+*   <strong>La flecha azul</strong> señala la línea azul de hasta arriba, que representa el resultado cuando la corriente IB llegó a su valor máximo configurado de 0.001.</p>
+<p>Básicamente, en este apartado pasas a observar y analizar cómo se comporta tu transistor con los diferentes cambios de voltaje y corriente que le programaste en un inicio.</p>
+<p><img alt="Gráfica DC Transfer Characteristic" src="../img/imagenes_multisim/Imagen4.png" />
+<em>Figura 5.4: Grapher View mostrando las tres curvas características del transistor.</em></p>
+<h3 id="modificacion-de-pasos-en-el-barrido">Modificación de Pasos en el Barrido</h3>
+<p>Si deseas ajustar la resolución de tus gráficas, puedes volver al menú de configuración. En la imagen superior, ese recuadro en la barra de herramientas que dice "DC Sweep" (resaltado en rojo) es justamente el menú al que le das clic para poder entrar a la ventana de configuración de tu simulación.</p>
+<p>Una vez que entras desde ese recuadro, se abre la ventana inferior. Como explicaba el profesor, si los resultados iniciales te mostraron 3 barridas pero tú quieres "hacer que sean más o hacer que sean menos", en este apartado pasas a cambiar la cantidad de pasos o valores. El recuadro rojo te señala específicamente los parámetros de tu fuente 2 (IB). Al modificar el valor de <em>Increment</em> ahí, ajustas de cuánto en cuánto avanza la corriente y, con eso, controlas cuántas curvas se van a graficar en tu simulación final.</p>
+<p><img alt="Modificación del DC Sweep" src="../img/imagenes_multisim/Imagen5.png" />
+<em>Figura 5.5: Acceso al menú y modificación del incremento de IB.</em></p>
+<h3 id="analisis-del-circuito-base-utilizado">Análisis del Circuito Base Utilizado</h3>
+<p>Esta imagen nos muestra el circuito base que armaste para poder hacer todo este ejemplo. Como explicaba el profesor, aquí es donde colocas tus componentes y defines las fuentes que luego el simulador va a reconocer. Si observas bien, el diagrama conecta perfectamente con todo lo que configuramos en los pasos anteriores:</p>
+<ul>
+<li><strong>El componente principal:</strong> En el centro tienes a tu transistor, etiquetado como Q1 (es un modelo 2N2222A). Recuerda que en el Paso 2 entraste a las salidas para pedirle al programa que midiera la corriente de este elemento en específico (<code>I(Q1[IC])</code>).</li>
+<li><strong>Tu fuente de corriente (IB):</strong> Del lado izquierdo tienes conectada una fuente de corriente a la base del transistor, nombrada como IB. Esta es exactamente tu "Source 2" en la configuración de la simulación, a la cual le programaste los incrementos de 0.0005 A.</li>
+<li><strong>Tu fuente de voltaje (VCE):</strong> Del lado derecho tienes la fuente de voltaje conectada al colector, nombrada como VCE. Esta es tu "Source 1", a la que le indicaste que hiciera el barrido desde 0 hasta 10 V.</li>
+</ul>
+<p>Básicamente, en este apartado armas tu esquema asegurándote de nombrar bien tus fuentes (IB y VCE). De esta manera, cuando entras al recuadro de "DC Sweep" para configurar tu análisis, el programa ya sabe exactamente qué componentes de tu circuito son los que vas a variar.</p>
+<p><img alt="Circuito de Transistor BJT" src="../img/imagenes_multisim/Imagen6.png" />
+<em>Figura 5.6: Esquema del circuito para el análisis del transistor.</em></p>
+<hr />
+<h2 id="52-simulacion-interactiva-circuito-rectificador">5.2 Simulación Interactiva: Circuito Rectificador</h2>
+<h3 id="paso-6-anadir-un-generador-de-funciones">Paso 6: Añadir un Generador de Funciones</h3>
+<p>En esta parte, dejas atrás el análisis en DC para comenzar a usar otras herramientas y armar un circuito diferente. Para lograr esto, te diriges a la barra vertical que se encuentra en el lado derecho de la pantalla, la cual contiene todos los instrumentos virtuales del simulador.</p>
+<p>Como está resaltado en el recuadro rojo, vas a buscar y darle clic al icono del <strong>Generador de funciones</strong> (<em>Function Generator</em>). Una vez seleccionado, mueves tu cursor hacia la cuadrícula de trabajo para colocar el instrumento, el cual se representa visualmente como un bloque con tres tipos de ondas (senoidal, triangular y cuadrada).</p>
+<p><img alt="Icono del Generador de Funciones" src="../img/imagenes_multisim/Imagen7.png" />
+<em>Figura 5.7: Selección e inserción del generador de funciones.</em></p>
+<h3 id="paso-7-buscar-y-seleccionar-componentes">Paso 7: Buscar y Seleccionar Componentes</h3>
+<p>En esta parte, vamos a agregar los elementos necesarios para armar el nuevo circuito rectificador que mencionó el profesor, utilizando la ventana de componentes.</p>
+<ul>
+<li><strong>Abrir el menú de componentes:</strong> Primero, te diriges a la barra de herramientas superior y le das clic al botón que tiene el icono de un diodo (resaltado en el recuadro rojo). Este botón es el acceso directo para entrar a la ventana principal donde podremos seleccionar todos nuestros componentes.</li>
+<li><strong>Seleccionar el diodo:</strong> Al darle clic, se abrirá la ventana llamada "Select a Component". Para agregar tu diodo, buscas en la lista de la izquierda llamada "Family" la opción <strong>DIODE</strong> y le das clic. Después, en la lista central, eliges el modelo específico que vayas a usar (en este caso está seleccionado el <code>1BH62</code>) y finalmente presionas el botón <strong>OK</strong> en la esquina superior derecha para llevarlo a tu área de trabajo.</li>
+<li><strong>Seleccionar la resistencia:</strong> Para la resistencia, repites el mismo proceso dentro de esa ventana. Buscas en la lista de familias la opción <strong>RESISTOR</strong> y la seleccionas. Luego, en la columna central, eliges el valor de tu resistencia (en el ejemplo está marcada una de 1k) y vuelves a presionar el botón <strong>OK</strong> para colocarla en tu circuito.</li>
+</ul>
+<p><img alt="Ventanas Select a Component" src="../img/imagenes_multisim/Imagen8.png" />
+<em>Figura 5.8: Selección del diodo y la resistencia desde la base de datos.</em></p>
+<p>Una vez importados los elementos, procedemos a unirlos cableando el esquemático.</p>
+<p><img alt="Circuito rectificador conectado" src="../img/imagenes_multisim/Imagen9.png" />
+<em>Figura 5.9: Diagrama del circuito rectificador de media onda armado.</em></p>
+<h3 id="paso-8-configurar-el-modo-de-simulacion">Paso 8: Configurar el Modo de Simulación</h3>
+<p>En las imágenes anteriores puedes ver cómo queda armado el circuito con los componentes que agregaste. Tienes tu Generador de funciones (XFG1) conectado a tu diodo (D1, modelo 1BH62), el cual va en serie con tu resistencia (R1 de 1kΩ), y finalmente todo cierra con la conexión a tierra. Como explicaba el profesor, este arreglo con el diodo te servirá para rectificar la señal alterna que vas a introducir.</p>
+<p>Antes de darle al botón de <em>Run</em>, debes verificar tu modo de simulación. Como advirtió el profesor, si el programa te marca un error automáticamente al intentar simular, debes ir al menú superior (el recuadro que antes decía "DC Sweep") y asegurarte de seleccionar la opción <strong>"Interactive Simulation"</strong> (Simulación Interactiva). </p>
+<p>Al seleccionar "Interactive", el simulador actualiza su estado (lo que se refleja en el cuadro azul) y ya sabe qué tipo de análisis estás intentando hacer, permitiendo que el circuito funcione de manera normal para que puedas pasar al siguiente paso y conectar tu osciloscopio.</p>
+<p><img alt="Ajuste a Simulación Interactiva" src="../img/imagenes_multisim/Imagen10.png" />
+<em>Figura 5.10: Cambio del modo de análisis a simulación interactiva.</em></p>
+<h3 id="paso-9-anadir-el-osciloscopio-estandar">Paso 9: Añadir el Osciloscopio Estándar</h3>
+<p>En esta parte, como indicó el profesor para que se puedan ver bien los resultados, vas a "agarrar un osciloscopio" para poder observar gráficamente qué es lo que está haciendo tu circuito.</p>
+<p>Para agregarlo, te diriges nuevamente a la barra vertical de instrumentos que se encuentra en el lado derecho de tu pantalla. En este apartado pasas a buscar y seleccionar el cuarto icono de la lista, el cual está resaltado con el recuadro rojo y pertenece al osciloscopio. Al darle clic, podrás colocar el instrumento en tu área de trabajo, el cual se representa gráficamente como un bloque grande con el dibujo de una onda en el centro y las conexiones para los canales.</p>
+<p>Este instrumento será clave para el siguiente paso, ya que te permitirá conectar sus terminales a diferentes puntos de tu arreglo para medir la señal original y ver cómo la rectifica el diodo.</p>
+<p><img alt="Osciloscopio virtual en barra de herramientas" src="../img/imagenes_multisim/Imagen11.png" />
+<em>Figura 5.11: Inserción del osciloscopio virtual en el esquemático.</em></p>
+<h3 id="paso-10-configurar-el-generador-de-funciones">Paso 10: Configurar el Generador de Funciones</h3>
+<p>Haciendo una pequeña aclaración: la ventana de configuración que aparece en esta imagen en realidad pertenece al generador de funciones (XFG1), no al osciloscopio. Para abrir este menú, debes interactuar (darle doble clic o clic derecho) al bloque del generador de funciones que colocaste al inicio, el cual está resaltado con el recuadro verde grande a la izquierda.</p>
+<p>En este apartado pasas a configurar cómo será la señal eléctrica que va a entrar a tu circuito. Como explicaba el profesor, aquí vas a simular la señal alterna que tenemos normalmente en la red eléctrica ajustando dos parámetros clave en la ventana "Function generator-XFG1":
+*   <strong>Frecuencia (Frequency):</strong> En el primer recuadro verde, ingresas <code>60 Hz</code>, que es el valor normal que utilizamos.
+*   <strong>Amplitud (Amplitude):</strong> En el segundo recuadro verde inferior, configuras <code>120 Vp</code> (Volts pico), que es la amplitud estándar para la red.</p>
+<p>Una vez que ajustas esta ventana, tu circuito ya estará alimentado con la señal correcta para que, en los siguientes pasos, ahora sí utilices el osciloscopio para visualizar cómo el diodo transforma esta onda.</p>
+<p><img alt="Configuración del Generador de Funciones" src="../img/imagenes_multisim/Imagen12.png" />
+<em>Figura 5.12: Parámetros del generador configurados a 60 Hz y 120 Vp.</em></p>
+<h3 id="paso-11-visualizar-y-comparar-senales-en-el-osciloscopio">Paso 11: Visualizar y Comparar Señales en el Osciloscopio</h3>
+<p>En esta parte, después de dar doble clic al ícono del osciloscopio (el cual está resaltado con el círculo amarillo en el diagrama), se abre la pantalla principal (la ventana negra) donde por fin se puede visualizar cómo se comporta la señal en el tiempo.</p>
+<p>En este apartado, se utilizan y observan las entradas del instrumento mediante la configuración de los canales en la parte inferior de la ventana (Channel A y Channel B). Como mencionaba el profesor, la estrategia aquí es habilitar 2 canales para poder compararlos visualmente. Usualmente, se conecta un canal al inicio del circuito para ver la señal original (la onda completa que se configuró en el generador) y otro canal a la salida del diodo para ver el resultado final.</p>
+<p>Al observar la pantalla negra, se aprecia claramente el resultado de la simulación interactiva: la gráfica muestra únicamente unas curvas o "montañas" en la parte superior. Esto comprueba visualmente la teoría explicada por el profesor, donde el diodo rectificó la señal alterna original, bloqueando la parte negativa de la onda y dejando pasar solo la mitad positiva.</p>
+<p><img alt="Señales en el osciloscopio" src="../img/imagenes_multisim/Imagen13.png" />
+<em>Figura 5.13: Señal rectificada visualizada en el osciloscopio estándar.</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Diferenciar Señales (Net Color)</p>
+<p>Para hacer más fácil la lectura de las gráficas en el osciloscopio, puedes cambiar el color de los cables de conexión. Haces clic derecho sobre un segmento de cable, seleccionas <strong>Properties</strong> (o <em>Segment color</em>) y en la ventana emergente modificas el "Net color" eligiendo un color distinto (por ejemplo, verde o azul). Esto hará que la señal en el osciloscopio se dibuje de ese mismo color, facilitando la comparación.</p>
+</div>
+<p><img alt="Cambio de color en cables" src="../img/imagenes_multisim/Imagen14.png" />
+<em>Figura 5.14: Modificación del color de red (Net color) para organización visual.</em></p>
+<h3 id="alternativa-uso-del-osciloscopio-tektronix">Alternativa: Uso del Osciloscopio Tektronix</h3>
+<p>Además del osciloscopio estándar, puedes ocupar otro tipo de osciloscopio disponible en la barra de herramientas derecha. Se hacen las conexiones correspondientes al circuito de igual forma.</p>
+<p><img alt="Osciloscopio Tektronix conexiones" src="../img/imagenes_multisim/Imagen15.png" />
+<em>Figura 5.15: Selección e integración del osciloscopio Tektronix en el esquemático.</em></p>
+<p>Este osciloscopio es muy parecido a los de la vida real, más en específico al modelo <strong>Tektronix TDS 2024</strong>. Al abrir su interfaz interactiva, puedes manipular las perillas virtuales de tiempo y voltaje de la misma manera que lo harías en un laboratorio físico.</p>
+<p>En conclusión, se pueden hacer muchas simulaciones y tomar muchos tipos de tomas con osciloscopios y otras herramientas dentro de Multisim para comprobar el comportamiento de nuestros circuitos electrónicos.</p>
+<p><img alt="Interfaz del Tektronix TDS 2024" src="../img/imagenes_multisim/Imagen16.png" />
+<em>Figura 5.16: Visualización de las ondas de entrada y salida en la interfaz del Tektronix virtual.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
