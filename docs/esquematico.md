@@ -1,8 +1,8 @@
-# 1. Diseño del Esquemático y Lógica del Circuito
-
 <!-- Logo de KiCad actualizado a tu archivo local -->
   <img src="img/KiCad-Logo.svg.webp" alt="Logo KiCad" width="100">
 </div>
+
+# 1. Diseño del Esquemático y Lógica del Circuito
 
 El diseño del diagrama esquemático representa la primera y más crucial fase en el desarrollo de nuestra placa de circuito impreso (PCB). En esta etapa de abstracción, el objetivo principal no es definir la geometría física ni la ubicación espacial de los componentes, sino establecer de manera rigurosa la interconectividad lógica (Netlist), definir los flujos de corriente, estructurar las topologías de control y garantizar que se cumplan las normativas de diseño eléctrico (ERC). Para llevar a cabo este proceso, emplearemos la suite de automatización de diseño electrónico (EDA) de código abierto, **KiCad**.
 
