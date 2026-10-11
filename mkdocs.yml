@@ -16,6 +16,8 @@ nav:
   - MonoFab:
     - 1. MonoFab: monoFab.md
   - Referencias: recursos.md
+  - Multisim:
+    - 1. Multisim: multisim.md
 
 
 theme:
