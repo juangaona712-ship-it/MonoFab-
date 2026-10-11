@@ -21,11 +21,11 @@ nav:
 
 theme:
   name: material
-  logo: img/logo.jpg # <-- Reemplaza lo que tengas aquí por esto
+  logo: img/logo.jpg
   favicon: material/developer-board
   icon:
     repo: fontawesome/brands/github
-  # 1. Nueva tipografía súper moderna y limpia
+  # Tipografía súper moderna y limpia
   font:
     text: Montserrat
     code: Fira Code
@@ -35,38 +35,39 @@ theme:
     - navigation.tabs 
     - navigation.tabs.sticky
     - navigation.top
-    - navigation.expand
-    - toc.integrate
     - content.code.copy
-  # 2. Paleta de colores con alto contraste
+    # Nota: Se eliminó 'navigation.expand' para que los menús estén colapsados por defecto.
+    # Nota: Se eliminó 'toc.integrate' para limpiar los subtítulos de la barra izquierda y pasarlos a la derecha.
+    
+  # Paleta de colores: Tonos grises modernos y limpios
   palette:
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo # Azul tecnológico para la barra
-      accent: amber # Naranja/Amarillo vibrante para detalles
-      toggle:
-        icon: material/brightness-4
-        name: Cambiar a modo claro
+    # Modo Claro (Gris azulado)
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: amber
+      primary: blue grey
+      accent: blue
       toggle:
         icon: material/brightness-7
         name: Cambiar a modo oscuro
-
+    
+    # Modo Oscuro (Gris profundo moderno)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: grey
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
 
 markdown_extensions:
   - attr_list
   - md_in_html
+  - admonition
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.superfences
-  - admonition
-  - attr_list
-  - md_in_html
 
 # Aquí llamamos a nuestro archivo de estilos personalizados
 extra_css:
