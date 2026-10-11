@@ -14,23 +14,24 @@
 }
 
 [data-md-color-scheme="slate"] {
-    --fondo-base: #1a1c23;
+    /* GRIS OSCURO NEUTRO MODERNIZADO */
+    --fondo-base: #1e1e1e; 
     --grid-puntos: rgba(255, 255, 255, 0.05);
-    --cristal-fondo: rgba(30, 33, 43, 0.6);
+    --cristal-fondo: rgba(30, 30, 30, 0.7); 
     --cristal-borde: rgba(255, 255, 255, 0.1);
-    --sombra-suave: rgba(0, 0, 0, 0.4);
+    --sombra-suave: rgba(0, 0, 0, 0.5);
 }
 
 /* =========================================
    NUEVO: FORZAR COLOR OSCURO EN LA BARRA (Modo Claro)
    ========================================= */
 [data-md-color-scheme="default"] .md-header {
-    color: #1a1c23 !important; /* Vuelve el texto oscuro */
+    color: #1e1e1e !important; /* Vuelve el texto gris oscuro */
 }
 [data-md-color-scheme="default"] .md-header__button,
 [data-md-color-scheme="default"] .md-header__title,
 [data-md-color-scheme="default"] .md-header__topic {
-    color: #1a1c23 !important; /* Vuelve los iconos y títulos oscuros */
+    color: #1e1e1e !important; /* Vuelve los iconos y títulos gris oscuro */
 }
 
 /* =========================================
@@ -192,54 +193,3 @@ h1 {
 /* =========================================
    8. COMPONENTES VARIOS (Bordes, Fotos y Scrollbar)
    ========================================= */
-.md-typeset .admonition,
-.md-typeset pre,
-.md-typeset code {
-    border-radius: 10px;
-    border: 1px solid var(--cristal-borde);
-    box-shadow: 0 4px 20px var(--sombra-suave);
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: var(--fondo-base);
-}
-::-webkit-scrollbar-thumb {
-    background: #e53935;
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #ff5252;
-}
-
-.md-typeset p > img {
-    display: block !important;
-    margin: 0 auto !important; 
-    max-width: 85% !important;
-    border-radius: 8px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-    border: 1px solid rgba(128, 128, 128, 0.2) !important;
-}
-
-.md-typeset p:has(img) > em {
-    display: block !important;
-    text-align: center !important;
-    color: var(--md-default-fg-color--light) !important;
-    margin-top: 10px !important;
-    margin-bottom: 30px !important;
-    font-size: 0.9em !important;
-}
-
-.foto-equipo {
-    width: 160px !important;
-    height: 160px !important;
-    object-fit: cover !important; 
-    object-position: center !important; 
-    border-radius: 50% !important; 
-    border: 2px solid #e53935; 
-    box-shadow: 0 0 20px rgba(229, 57, 53, 0.4); 
-    display: block;
-    margin: 0 auto 15px auto; 
-}
