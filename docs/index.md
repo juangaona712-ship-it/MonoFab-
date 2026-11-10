@@ -55,13 +55,21 @@ Desde la concepción lógica del diagrama eléctrico, pasando por la simulación
     
     [Ver documentación ➔](multisim.md)
 
--   📚 **[6. Referencias y Recursos](recursos.md)**
-    
-    ---
-    
-    Material de referencia complementario, hojas de datos (datasheets) y manuales de apoyo.
-    
-    [Ver documentación ➔](recursos.md)
+-   🦅 **[6. Altium Designer (Diseño PCB)](altium.md)**
+    
+    ---
+    
+    Diseño profesional de PCBs, esquemáticos, enrutado de dos capas y generación de archivos Gerber.
+    
+    [Ver documentación ➔](altium.md)
+
+-   📚 **[7. Referencias y Recursos](recursos.md)**
+    
+    ---
+    
+    Material de referencia complementario, hojas de datos (datasheets) y manuales de apoyo.
+    
+    [Ver documentación ➔](recursos.md)
 
 </div>
 
