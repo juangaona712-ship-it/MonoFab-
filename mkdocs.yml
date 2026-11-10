@@ -17,6 +17,8 @@ nav:
     - 4. MonoFab: monoFab.md
   - Multisim:
     - 5. Multisim: multisim.md
+  - Altium designer:
+    - 6. Altium: altium.md
   - Referencias: recursos.md
 
 theme:
