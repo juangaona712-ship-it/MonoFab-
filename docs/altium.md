@@ -13,7 +13,7 @@ El primer paso para comenzar a diseñar nuestra placa de circuito impreso es con
 
 <div align="center" style="margin-top: 20px; margin-bottom: 40px;">
   <a href="https://www.altium.com/products/download/" target="_blank" class="btn-descarga">
-    📥 Descargar Altium disagner Oficial
+    📥 Descargar Altium designer Oficial
   </a>
 </div>
 
