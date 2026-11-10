@@ -9,7 +9,15 @@
 
 El primer paso para comenzar a diseñar nuestra placa de circuito impreso es contar con el entorno de desarrollo adecuado.
 
-1. **Descarga del Software:** Accede al portal oficial de descargas de Altium a través del enlace: [altium.com/products/downloads](https://www.altium.com/products/downloads).
+1. **Descarga del Software:** Accede al portal oficial de descargas de Altium a través del enlace:
+
+<div align="center" style="margin-top: 20px; margin-bottom: 40px;">
+  <a href="https://www.altium.com/products/download/" target="_blank" class="btn-descarga">
+    📥 Descargar Altium disagner Oficial
+  </a>
+</div>
+
+---
 
 ![Portal de descargas de Altium Designer](img/imagenes_altium/Imagen1.png)
 *Figura 6.1: Descarga del instalador en línea de Altium Designer.*
