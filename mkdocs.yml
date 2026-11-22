@@ -19,7 +19,9 @@ nav:
     - 5. Multisim: multisim.md
   - Altium designer:
     - 6. Altium: altium.md
-  - Referencias: recursos.md
+- Soldadura:
+  - 7. Soldaduras: Técnicas y Resultados: soldadura.md
+- Referencias: recursos.md
 
 theme:
   name: material
