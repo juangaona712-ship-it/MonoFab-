@@ -63,7 +63,15 @@ Desde la concepción lógica del diagrama eléctrico, pasando por la simulación
     
     [Ver documentación ➔](altium.md)
 
--   📚 **[7. Referencias y Recursos](recursos.md)**
+-   🔥 **[7. Soldaduras: Técnicas y Resultados](soldadura.md)**
+
+    ---
+
+    Técnicas de soldadura THT, headers y retrabajo, y resultados en la PCB del volante y en la placa fresada en MonoFab.
+
+    [Ver documentación ➔](soldadura.md)
+
+-   📚 **[8. Referencias y Recursos](recursos.md)**
 
     ---
     
