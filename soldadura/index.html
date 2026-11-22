@@ -1,0 +1,1804 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación técnica del diseño y ruteo de circuito impreso.">
+      
+      
+        <meta name="author" content="Juan Manuel Gaona Serrano">
+      
+      
+      
+        <link rel="prev" href="../altium/">
+      
+      
+        <link rel="next" href="../recursos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../material/developer-board">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>7. Soldaduras - Técnicas y Resultados - Diseño de PCB</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Montserrat";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#7-soldaduras-tecnicas-y-resultados" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Diseño de PCB" class="md-header__button md-logo" aria-label="Diseño de PCB" data-md-component="logo">
+      
+  <img src="../img/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Diseño de PCB
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. Soldaduras - Técnicas y Resultados
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="amber"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/juangaona712-ship-it/MonoFab-.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    juangaona712-ship-it/MonoFab
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../esquematico/" class="md-tabs__link">
+          
+  
+  
+  Kicad
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../mods-ce/" class="md-tabs__link">
+          
+  
+  
+  Mods
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../monoFab/" class="md-tabs__link">
+          
+  
+  
+  MonoFab
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../multisim/" class="md-tabs__link">
+          
+  
+  
+  Multisim
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../altium/" class="md-tabs__link">
+          
+  
+  
+  Altium designer
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Soldadura
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../recursos/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Referencias
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Diseño de PCB" class="md-nav__button md-logo" aria-label="Diseño de PCB" data-md-component="logo">
+      
+  <img src="../img/logo.jpg" alt="logo">
+
+    </a>
+    Diseño de PCB
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/juangaona712-ship-it/MonoFab-.git" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    juangaona712-ship-it/MonoFab
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kicad
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kicad
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../esquematico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Diseño del Esquemático
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../editor-placas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Editor de Placas (Layout)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mods
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Mods
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mods-ce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Mods CE y Ajustes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MonoFab
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MonoFab
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monoFab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. MonoFab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multisim
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Multisim
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multisim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Multisim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Altium designer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Altium designer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../altium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Altium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Soldadura
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Soldadura
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Soldaduras - Técnicas y Resultados
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Soldaduras - Técnicas y Resultados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-materiales-y-herramientas-que-se-ocupan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Materiales y Herramientas que se Ocupan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-tecnicas-de-soldadura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Técnicas de Soldadura
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 Técnicas de Soldadura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soldadura-through-hole-tht" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soldadura Through-Hole (THT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soldadura-de-headers-y-pines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soldadura de Headers y Pines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soldadura-de-componentes-pequenos-y-pines-finos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soldadura de Componentes Pequeños y Pines Finos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desoldadura-y-retrabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desoldadura y Retrabajo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-procedimiento-volante-gamer-con-esp32-altium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Procedimiento: Volante Gamer con ESP32 (Altium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74-procedimiento-placa-fresada-en-monofab-srm-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Procedimiento: Placa Fresada en MonoFab SRM-20
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-verificacion-y-resultados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Verificación y Resultados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.5 Verificación y Resultados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pruebas-de-continuidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pruebas de continuidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultados-obtenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados obtenidos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#76-errores-comunes-y-como-corregirlos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 Errores Comunes y Cómo Corregirlos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#77-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7 Seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recursos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-materiales-y-herramientas-que-se-ocupan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Materiales y Herramientas que se Ocupan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-tecnicas-de-soldadura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Técnicas de Soldadura
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 Técnicas de Soldadura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soldadura-through-hole-tht" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soldadura Through-Hole (THT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soldadura-de-headers-y-pines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soldadura de Headers y Pines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soldadura-de-componentes-pequenos-y-pines-finos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Soldadura de Componentes Pequeños y Pines Finos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#desoldadura-y-retrabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desoldadura y Retrabajo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-procedimiento-volante-gamer-con-esp32-altium" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Procedimiento: Volante Gamer con ESP32 (Altium)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74-procedimiento-placa-fresada-en-monofab-srm-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 Procedimiento: Placa Fresada en MonoFab SRM-20
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-verificacion-y-resultados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.5 Verificación y Resultados
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.5 Verificación y Resultados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pruebas-de-continuidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pruebas de continuidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultados-obtenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultados obtenidos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#76-errores-comunes-y-como-corregirlos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.6 Errores Comunes y Cómo Corregirlos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#77-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.7 Seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="7-soldaduras-tecnicas-y-resultados">7. Soldaduras: Técnicas y Resultados</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Objetivo de esta fase</p>
+<p>Esta sección documenta las técnicas de soldadura utilizadas para ensamblar las placas del proyecto, así como los resultados obtenidos en cada una. Se toma como proyecto práctico de aplicación la PCB del <strong>Volante Gamer con ESP32</strong> diseñada en Altium Designer, y la placa fresada en la <strong>Roland MonoFab SRM-20</strong>, abarcando desde la preparación de herramientas y materiales, hasta la soldadura de componentes, la verificación eléctrica y la corrección de defectos.</p>
+</div>
+<hr />
+<h2 id="71-materiales-y-herramientas-que-se-ocupan">7.1 Materiales y Herramientas que se Ocupan</h2>
+<p>Antes de soldar, reúne todo el material en la mesa de trabajo. Trabajar con el material incompleto es la causa más común de soldaduras frías y puentes.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Material / Herramienta</th>
+<th style="text-align: left;">Uso</th>
+<th style="text-align: left;">Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Cautín / estación de soldadura de punta fina</td>
+<td style="text-align: left;">Calentar la unión y fundir la soldadura</td>
+<td style="text-align: left;">Punta limpia y estañada antes de cada uso</td>
+</tr>
+<tr>
+<td style="text-align: left;">Soldadura de estaño, 0.8 mm - 1.0 mm</td>
+<td style="text-align: left;">Unir el componente al pad de cobre</td>
+<td style="text-align: left;">60/40 o SAC305, según la que uses en el laboratorio</td>
+</tr>
+<tr>
+<td style="text-align: left;">Flux / pasta para soldar</td>
+<td style="text-align: left;">Limpiar el óxido y ayudar a que la soldadura fluya</td>
+<td style="text-align: left;">Aplicar solo una capa fina</td>
+</tr>
+<tr>
+<td style="text-align: left;">Esponja húmeda o limpiador de punta de latón</td>
+<td style="text-align: left;">Limpiar la punta del cautín</td>
+<td style="text-align: left;">Limpiar la punta cada 2 o 3 uniones</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pinzas de punta fina</td>
+<td style="text-align: left;">Sostener componentes pequeños y headers</td>
+<td style="text-align: left;">Evita tocar la punta caliente con los dedos</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tercera mano / base con pinzas cocodrilo</td>
+<td style="text-align: left;">Sujetar la PCB mientras se suelda</td>
+<td style="text-align: left;">La placa no debe moverse durante la soldadura</td>
+</tr>
+<tr>
+<td style="text-align: left;">Malla desoldadora y bomba desoldadora</td>
+<td style="text-align: left;">Retirar soldadura en exceso o corregir puentes</td>
+<td style="text-align: left;">Ver 7.6</td>
+</tr>
+<tr>
+<td style="text-align: left;">Multímetro en modo continuidad</td>
+<td style="text-align: left;">Verificar que no haya cortos y que la unión conduzca</td>
+<td style="text-align: left;">Ver 7.5</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lupa o microscopio</td>
+<td style="text-align: left;">Inspeccionar uniones pequeñas, pines del ESP32 y headers OLED</td>
+<td style="text-align: left;">Una unión bien hecha se ve brillante y cónica</td>
+</tr>
+<tr>
+<td style="text-align: left;">Alcohol isopropílico y cepillo / paño</td>
+<td style="text-align: left;">Limpiar flux y polvo de cobre después de soldar</td>
+<td style="text-align: left;">Sobre todo en la placa fresada en MonoFab</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lentes de seguridad</td>
+<td style="text-align: left;">Proteger los ojos de salpicaduras de soldadura</td>
+<td style="text-align: left;">Uso obligatorio</td>
+</tr>
+<tr>
+<td style="text-align: left;">Extractor de humos o ventilación</td>
+<td style="text-align: left;">Alejar el humo del flux de la cara</td>
+<td style="text-align: left;">No soldar en un espacio cerrado sin ventilar</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Herramientas y materiales de soldadura" src="img/imagenes_soldadura/Imagen1.png" />
+<em>Figura 7.1: Herramientas y materiales sobre la mesa de trabajo, antes de empezar.</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Preparación de la punta</p>
+<p>Antes de soldar la primera unión, limpia la punta en la esponja o en el limpiador de latón y estañala con un poco de soldadura. Una punta negra u oxidada no transfiere calor y produce soldaduras frías.</p>
+</div>
+<hr />
+<h2 id="72-tecnicas-de-soldadura">7.2 Técnicas de Soldadura</h2>
+<h3 id="soldadura-through-hole-tht">Soldadura Through-Hole (THT)</h3>
+<p>Es la técnica principal en este proyecto: el pin del componente pasa por el agujero de la PCB y se suelda por el lado opuesto.</p>
+<ol>
+<li>Inserta el componente por el lado correcto de la placa.</li>
+<li>Dobla ligeramente los pines por detrás para que el componente no se caiga.</li>
+<li>Calienta a la vez el pad y el pin con la punta del cautín, 2 o 3 segundos.</li>
+<li>Acerca la soldadura a la unión, no a la punta del cautín, y deja que fluya hasta formar un cono brillante.</li>
+<li>Retira primero la soldadura y después el cautín, sin mover el componente hasta que la unión se enfríe.</li>
+</ol>
+<p><img alt="Soldadura through-hole, paso a paso" src="img/imagenes_soldadura/Imagen2.png" />
+<em>Figura 7.2: Calentamiento del pad y el pin, y formación del cono de soldadura.</em></p>
+<h3 id="soldadura-de-headers-y-pines">Soldadura de Headers y Pines</h3>
+<p>Los headers del módulo ESP32 y de la pantalla OLED se sueldan pin por pin, para que queden rectos y alineados.</p>
+<ol>
+<li>Suelda primero un solo pin de cada extremo del header, verifica que esté derecho y luego suelda el resto.</li>
+<li>Si un header queda torcido, calienta de nuevo ese pin, acomódalo y deja enfriar.</li>
+<li>No apliques soldadura en exceso: un puente entre dos pines vecinos es el error más común en los headers.</li>
+</ol>
+<h3 id="soldadura-de-componentes-pequenos-y-pines-finos">Soldadura de Componentes Pequeños y Pines Finos</h3>
+<p>Para el diodo 1N4007, resistencias y pines de señal, usa la punta más fina, poco flux y poca soldadura.</p>
+<ul>
+<li>Calienta solo el tiempo necesario: demasiado calor levanta el pad, sobre todo en la placa fresada.</li>
+<li>Si la soldadura queda opaca y rugosa, es una soldadura fría: caliéntala de nuevo con un poco de flux hasta que quede brillante.</li>
+</ul>
+<h3 id="desoldadura-y-retrabajo">Desoldadura y Retrabajo</h3>
+<p>Cuando hay un puente o un componente mal colocado:</p>
+<ol>
+<li>Coloca la malla desoldadora sobre la unión y caliéntala con el cautín, para que absorba el exceso.</li>
+<li>Para retirar un componente, usa la bomba desoldadora pin por pin.</li>
+<li>Limpia el pad con alcohol isopropílico antes de volver a soldar.</li>
+</ol>
+<p><img alt="Retrabajo de una unión con puente" src="img/imagenes_soldadura/Imagen10.png" />
+<em>Figura 7.3: Corrección de un puente de soldadura con malla desoldadora.</em></p>
+<hr />
+<h2 id="73-procedimiento-volante-gamer-con-esp32-altium">7.3 Procedimiento: Volante Gamer con ESP32 (Altium)</h2>
+<p>Esta es la PCB de dos capas diseñada en Altium: módulo ESP32, botones Omron, diodo 1N4007 de protección contra polaridad inversa, headers para pantalla OLED, etiquetas de red D21, D22 y D34, pistas de señal de 0.4 mm, agujeros de montaje de 3.2 mm para tornillería M3 y polygon pour de GND.</p>
+<ol>
+<li><strong>Limpieza:</strong> Limpia los pads con alcohol isopropílico. No debe quedar polvo ni grasa.</li>
+<li><strong>Headers del ESP32:</strong> Suelda los headers del módulo ESP32, pin por pin, verificando que queden rectos.</li>
+</ol>
+<p><img alt="Headers del ESP32 soldados" src="img/imagenes_soldadura/Imagen3.png" />
+<em>Figura 7.4: Headers del módulo ESP32 soldados en la PCB del volante.</em></p>
+<ol>
+<li><strong>Botones Omron:</strong> Suelda los botones / pulsadores de los mandos, en su footprint correspondiente.</li>
+</ol>
+<p><img alt="Botones Omron soldados" src="img/imagenes_soldadura/Imagen4.png" />
+<em>Figura 7.5: Botones Omron soldados en la placa.</em></p>
+<ol>
+<li><strong>Diodo 1N4007:</strong> Suelda el diodo rectificador de protección contra polaridad inversa. <strong>Respeta la orientación: la banda del diodo debe quedar en el sentido indicado en la serigrafía y en el esquemático.</strong> Un diodo al revés deja el circuito sin protección.</li>
+</ol>
+<p><img alt="Diodo 1N4007, orientación de la banda" src="img/imagenes_soldadura/Imagen5.png" />
+<em>Figura 7.6: Diodo 1N4007 soldado, con la banda en el sentido correcto.</em></p>
+<ol>
+<li><strong>Headers OLED:</strong> Suelda los headers macho / hembra para la pantalla OLED y periféricos.</li>
+</ol>
+<p><img alt="Headers OLED soldados" src="img/imagenes_soldadura/Imagen6.png" />
+<em>Figura 7.7: Headers para la pantalla OLED.</em></p>
+<ol>
+<li><strong>Resistencias y pines restantes:</strong> Suelda las resistencias de limitación de corriente y los pines de señal restantes, siguiendo las etiquetas de red D21, D22 y D34 del esquemático.</li>
+<li><strong>Limpieza final:</strong> Retira el flux sobrante con alcohol isopropílico y deja secar la placa antes de conectarla.</li>
+</ol>
+<hr />
+<h2 id="74-procedimiento-placa-fresada-en-monofab-srm-20">7.4 Procedimiento: Placa Fresada en MonoFab SRM-20</h2>
+<p>Esta es la placa fabricada en la fresadora Roland MonoFab SRM-20: placa fenólica de cobre, perforaciones de 0.8 mm, ruteo de pistas con fresa plana de 0.4 mm y corte de contorno con fresa de 2 mm, sobre cama de sacrificio de MDF.</p>
+<ol>
+<li><strong>Limpieza:</strong> Antes de soldar, retira todo el polvo de cobre y fibra de vidrio con aspiradora y un cepillo, y limpia la superficie con alcohol isopropílico. El polvo entre pistas produce cortos.</li>
+</ol>
+<p><img alt="Placa MonoFab antes de soldar" src="img/imagenes_soldadura/Imagen7.png" />
+<em>Figura 7.8: Placa fresada en MonoFab, con los pads limpios antes de soldar.</em></p>
+<ol>
+<li><strong>Revisión de pistas:</strong> Inspecciona con lupa las pistas de 0.4 mm. Si una pista quedó cortada por el fresado, no la fuerces con soldadura: repárala con un puente de alambre fino, como se indica en 7.6.</li>
+<li><strong>Soldadura:</strong> Suelda los componentes con la misma técnica THT de 7.2, pero con menos calor y menos tiempo: en una placa fresada los pads son más delicados y se levantan con facilidad.</li>
+<li><strong>Limpieza final:</strong> Limpia de nuevo con alcohol isopropílico y verifica que no queden restos de cobre entre pistas.</li>
+</ol>
+<p><img alt="Placa MonoFab después de soldar" src="img/imagenes_soldadura/Imagen8.png" />
+<em>Figura 7.9: Placa fresada en MonoFab, ya con los componentes soldados.</em></p>
+<hr />
+<h2 id="75-verificacion-y-resultados">7.5 Verificación y Resultados</h2>
+<p>Una unión bien hecha se ve brillante, tiene forma de cono, cubre el pad y el pin, y no tiene puentes con el pin vecino.</p>
+<p><img alt="Detalle de una unión bien hecha" src="img/imagenes_soldadura/Imagen9.png" />
+<em>Figura 7.10: Detalle macro de una unión brillante y cónica.</em></p>
+<h3 id="pruebas-de-continuidad">Pruebas de continuidad</h3>
+<p>Con el multímetro en modo continuidad, y la placa sin energizar, verifica cada red antes de conectar el ESP32.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Componente / Red</th>
+<th style="text-align: left;">Prueba</th>
+<th style="text-align: left;">Resultado esperado</th>
+<th style="text-align: left;">Resultado obtenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Continuidad entre pads de GND</td>
+<td style="text-align: left;">Suena / 0 Ω</td>
+<td style="text-align: left;"><em>Pendiente</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">VCC 3.3V</td>
+<td style="text-align: left;">Continuidad VCC, sin corto a GND</td>
+<td style="text-align: left;">Sin continuidad con GND</td>
+<td style="text-align: left;"><em>Pendiente</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">D21</td>
+<td style="text-align: left;">Continuidad pin - botón / header</td>
+<td style="text-align: left;">Suena / 0 Ω</td>
+<td style="text-align: left;"><em>Pendiente</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">D22</td>
+<td style="text-align: left;">Continuidad pin - botón / header</td>
+<td style="text-align: left;">Suena / 0 Ω</td>
+<td style="text-align: left;"><em>Pendiente</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">D34</td>
+<td style="text-align: left;">Continuidad pin - potenciómetro / entrada</td>
+<td style="text-align: left;">Suena / 0 Ω</td>
+<td style="text-align: left;"><em>Pendiente</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">Diodo 1N4007</td>
+<td style="text-align: left;">Continuidad en un solo sentido</td>
+<td style="text-align: left;">Conduce en un sentido, no en el otro</td>
+<td style="text-align: left;"><em>Pendiente</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">Botones Omron</td>
+<td style="text-align: left;">Continuidad al presionar</td>
+<td style="text-align: left;">Suena solo al presionar</td>
+<td style="text-align: left;"><em>Pendiente</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">Headers OLED</td>
+<td style="text-align: left;">Continuidad, sin puentes entre pines vecinos</td>
+<td style="text-align: left;">Sin continuidad entre pines vecinos</td>
+<td style="text-align: left;"><em>Pendiente</em></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Verificación con multímetro" src="img/imagenes_soldadura/Imagen11.png" />
+<em>Figura 7.11: Verificación de continuidad con multímetro, antes de energizar la placa.</em></p>
+<h3 id="resultados-obtenidos">Resultados obtenidos</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Placa</th>
+<th style="text-align: left;">¿Qué se soldó?</th>
+<th style="text-align: left;">¿Qué salió bien?</th>
+<th style="text-align: left;">¿Qué se tuvo que corregir?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Volante Gamer con ESP32 (Altium)</td>
+<td style="text-align: left;">Headers ESP32, botones Omron, diodo 1N4007, headers OLED</td>
+<td style="text-align: left;"><em>Pendiente de llenar con tus resultados</em></td>
+<td style="text-align: left;"><em>Pendiente de llenar con tus resultados</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">Placa fresada en MonoFab SRM-20</td>
+<td style="text-align: left;"><em>Pendiente de llenar: componentes soldados en esta placa</em></td>
+<td style="text-align: left;"><em>Pendiente de llenar con tus resultados</em></td>
+<td style="text-align: left;"><em>Pendiente de llenar con tus resultados</em></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Resultado final" src="img/imagenes_soldadura/Imagen12.png" />
+<em>Figura 7.12: Resultado final: volante y placa terminados.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Antes de conectar la alimentación</p>
+<p>No conectes el ESP32 ni la fuente hasta que la prueba de continuidad VCC - GND no dé corto. Un corto en alimentación puede dañar el módulo.</p>
+</div>
+<hr />
+<h2 id="76-errores-comunes-y-como-corregirlos">7.6 Errores Comunes y Cómo Corregirlos</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Error</th>
+<th style="text-align: left;">Cómo se ve</th>
+<th style="text-align: left;">Causa</th>
+<th style="text-align: left;">Corrección</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Soldadura fría</td>
+<td style="text-align: left;">Opaca, rugosa, con forma de bola</td>
+<td style="text-align: left;">Poco calor o punta sucia</td>
+<td style="text-align: left;">Calentar de nuevo con flux hasta que quede brillante</td>
+</tr>
+<tr>
+<td style="text-align: left;">Puente entre pines</td>
+<td style="text-align: left;">Soldadura uniendo dos pines vecinos</td>
+<td style="text-align: left;">Exceso de soldadura</td>
+<td style="text-align: left;">Retirar el exceso con malla desoldadora</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pad levantado</td>
+<td style="text-align: left;">El pad de cobre se despega de la placa</td>
+<td style="text-align: left;">Demasiado calor o tiempo</td>
+<td style="text-align: left;">Reparar con un puente de alambre fino a la siguiente pista</td>
+</tr>
+<tr>
+<td style="text-align: left;">Diodo al revés</td>
+<td style="text-align: left;">El circuito no enciende o no tiene protección</td>
+<td style="text-align: left;">Orientación incorrecta del 1N4007</td>
+<td style="text-align: left;">Desoldar, girar el diodo y volver a soldar</td>
+</tr>
+<tr>
+<td style="text-align: left;">Componente torcido</td>
+<td style="text-align: left;">Header o botón inclinado</td>
+<td style="text-align: left;">Se soldó sin verificar la posición</td>
+<td style="text-align: left;">Calentar un pin, acomodar y dejar enfriar</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="77-seguridad">7.7 Seguridad</h2>
+<ul>
+<li>Usa lentes de seguridad y ventilación durante toda la soldadura.</li>
+<li>No toques la punta del cautín ni la unión recién soldada.</li>
+<li>Apaga y deja enfriar el cautín en su base al terminar.</li>
+<li>Lávate las manos después de soldar y no comas en la mesa de trabajo.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
